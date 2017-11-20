@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<!--landing page for Inspire lab, created on 9-17-17 by Sebastian Kurp -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Your Homepage for InspireLab">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS\mainstyle.css">
+    <script scr="JS\mainpage.js"></script>
+    <title>Home-InspireLab</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a>
+                    <span class="inspire">Inspire</span>
+                    <span class="lab">Lab</span>
+                </a>
+            </li>
+            <li>
+                <a class="menuOption">My Projects</a>
+            </li>
+            <li>
+                <a class="menuOption">Favorite Projects</a>
+            </li>
+            <li>
+                <a class="menuOption">Following</a>
+            </li>
+            <li>
+                <a class="menuOption">Our Top Picks</a>
+            </li>
+            <li class="nav-middle">
+                <form>
+                    <input type="text" name="search" placeholder="Search..">
+                </form>
+            </li>
+            <li class="nav-right"><button class="accordion">Username</button></li>
+            <li class="nav-right"><img id="profileImg" class="profile-avatar__image" src="Image\profilepic.jpg" onclick="displayFileUpload()"></li>
+            
+            <li class="nav-right">
+                <button class="updates-button">
+                    <i class="fa fa-bell"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <div class="file-upload" id="file"><!-- user profile picture -->
+        <span class="changePic">Change Profile Picture</span>
+        <form class="file-form"> 
+            <input type="file" id="fileName" accept="image/*">
+        </form>
+        <span class="file-close" id="file-close">&#10006</span>
+    </div>
+    <section>
+        <section id="activitySpace" class="mainContent container">
+            <template id="project_template">
+                <article class="projectCard standardColor">
+                    <div>
+                        <h2>{{Title}}</h2>
+                        <h1 id="favorite" title="Favorite" onclick="favorite()" class="favorite"> &#9733</h1>
+                    </div>
+
+                    <ul>
+                        <li class="cardLink">
+                            <label>{{Step1}}</label>
+                        </li>
+                        <br>
+                        <li class="cardLink">
+                            <label>{{Step2}}</label>
+                        </li>
+                        <br>
+                        <li class="cardLink">
+                            <label>{{Step3}}</label>
+                        </li>
+                        <br>
+                        <li>
+                            <video class="cardMedia" controls>
+                                    <source src= {{Video}} type="video/mp4">
+                            </video>
+                        </li>
+                        <li>
+                            <img class="cardMedia" src= {{Picture}} >
+                        </li>
+                        <li>
+                            <div class="centerThis">
+                                <span class="cardLinks">Share</span>
+                                <span class="cardLinks">Follow</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                </article>
+            </template>
+
+        </section>
+
+        <script src="JS\mainpage.js"></script>
+</body>
+
+</html>
